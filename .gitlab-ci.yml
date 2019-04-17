@@ -1,0 +1,20 @@
+image: $CI_REGISTRY/build/node:6.10.2
+
+cache:
+  untracked: true
+  paths:
+    - node_modules/
+
+stages:
+  - setup
+  - test
+
+setup:
+  stage: setup
+  script:
+    - npm install
+
+test:
+  stage: test
+  script:
+    - ./node_modules/.bin/vue --version
